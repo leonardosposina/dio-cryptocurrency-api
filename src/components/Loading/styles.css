@@ -1,0 +1,35 @@
+.loading {
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading svg {
+  margin-top: -60px;
+  animation: loading-animation 1.5s infinite linear;
+}
+
+.loading p {
+  color: var(--primary-text-color);
+  height: 15px;
+  margin-top: 15px;
+}
+
+@keyframes loading-animation {
+  0% {
+    fill: white;
+    transform: rotate(0deg);
+  }
+
+  50% {
+    fill: var(--third-text-color);
+  }
+
+  100% {
+    fill: white;
+    transform: rotate(360deg);
+  }
+}

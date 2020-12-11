@@ -1,0 +1,45 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+:root {
+  --primary-navbar-color: #333;
+
+  --primary-text-color: #eee;
+  --secondary-text-color: #ccc;
+  --third-text-color: orange;
+
+  --primary-background-color: #0D1117;
+  --secondary-background-color: #161B22;
+  --modal-background-color: #222;
+
+  --primary-border-color:lightgray;
+  --secondary-border-color: orange;
+  --third-border-color: limegreen;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--primary-background-color);
+}
+
+button {
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--primary-background-color);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-navbar-color);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-border-color);
+}

@@ -1,0 +1,29 @@
+div.modal-content,
+.modal-content button {
+  background-color: var(--secondary-background-color);
+  border-color: var(--primary-border-color);
+  color: var(--primary-text-color);
+}
+
+.modal-content button:hover {
+  color: white;
+}
+
+.modal-content img {
+  margin-right: 15px;
+}
+
+.modal-title {
+  display: flex;
+  align-items: center;
+}
+
+.modal-title .symbol-name {
+  color: var(--secondary-text-color);
+  font-weight: 400;
+}
+
+.modal-body {
+  text-align: justify;
+  text-justify: inter-word;
+}
