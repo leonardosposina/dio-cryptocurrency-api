@@ -20,10 +20,9 @@ interface CryptocoinProps {
   onPress: () => void;
 }
 
-const Cryptocoin: React.FC<CryptocoinProps> = ({
-  data,
-  onPress,
-}: CryptocoinProps) => {
+const Cryptocoin: React.FC<CryptocoinProps> = (props: CryptocoinProps) => {
+  const { data, onPress } = props;
+
   return (
     <Container onClick={onPress}>
       <Title>

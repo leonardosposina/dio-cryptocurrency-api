@@ -11,11 +11,9 @@ interface ICryoptoProps {
   toogleVisibility: () => void;
 }
 
-const CryptocoinModal: React.FC<ICryoptoProps> = ({
-  data,
-  isVisible,
-  toogleVisibility,
-}: ICryoptoProps) => {
+const CryptocoinModal: React.FC<ICryoptoProps> = (props: ICryoptoProps) => {
+  const { data, isVisible, toogleVisibility } = props;
+
   return (
     <Modal
       show={isVisible}

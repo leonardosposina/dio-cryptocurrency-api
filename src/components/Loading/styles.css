@@ -9,6 +9,8 @@
 
 .loading svg {
   margin-top: -60px;
+  -webkit-animation: loading-animation 1.5s infinite linear;
+  -moz-animation: loading-animation 1.5s infinite linear;
   animation: loading-animation 1.5s infinite linear;
 }
 
@@ -16,6 +18,10 @@
   color: var(--primary-text-color);
   height: 15px;
   margin-top: 15px;
+  visibility: hidden;
+  -webkit-animation: fadeIn-animation 2.5s linear forwards;
+  -moz-animation: fadeIn-animation 2.5s linear forwards;
+  animation: fadeIn-animation 2.5s linear forwards;
 }
 
 @keyframes loading-animation {
@@ -32,4 +38,9 @@
     fill: white;
     transform: rotate(360deg);
   }
+}
+
+@keyframes fadeIn-animation {
+  99% { visibility: hidden }
+  100% { visibility: visible }
 }

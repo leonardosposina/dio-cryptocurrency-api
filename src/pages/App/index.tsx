@@ -113,7 +113,7 @@ const App: React.FC = () => {
         {apiError && (
           <ErrorAlert error={apiError} clearError={() => setApiError(null)} />
         )}
-        {isLoading && <Loading />}
+        {isLoading && <Loading message="Waking up the backend instance..." />}
         <Row>
           {cryptoList.map(crypto => (
             <Col sm={6} md={4} xl={3} key={crypto.id}>

@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import { Row, Col } from 'react-bootstrap';
 import { ImSpinner10 } from 'react-icons/im';
 
 import './styles.css';
 
-const Loading: React.FC = () => {
-  const [message, setMessage] = useState<string>();
+interface ILoadingProps {
+  message: string;
+}
 
-  useEffect(() => {
-    setTimeout(() => setMessage('Waking up the backend instance...'), 1500);
-  }, []);
+const Loading: React.FC<ILoadingProps> = (props: ILoadingProps) => {
+  const { message } = props;
 
   return (
     <Row>
