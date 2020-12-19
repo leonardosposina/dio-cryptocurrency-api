@@ -6,12 +6,10 @@ import { ImSpinner10 } from 'react-icons/im';
 import './styles.css';
 
 interface ILoadingProps {
-  message: string;
+  message?: string;
 }
 
-const Loading: React.FC<ILoadingProps> = (props: ILoadingProps) => {
-  const { message } = props;
-
+const Loading: React.FC<ILoadingProps> = ({ message = '' }) => {
   return (
     <Row>
       <Col className="loading">

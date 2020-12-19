@@ -20,11 +20,11 @@ A API RESTful fornecida pela **CoinMarketCap** não permite a requisição de re
 
 #### ⚠ Tentativa
 
-Para contornar essa questão do CORS, tentei utilizar o [https://cors-anywhere.herokuapp.com/][cors-anywhere], um serviço que possibilita requisições *cross-origin* de qualquer lugar, mas a solução se mostrou instável e o acesso à **CoinMarketCap API** ficava indisponível em alguns momentos.
+Para contornar essa questão do CORS, tentei utilizar o [https://cors-anywhere.herokuapp.com/][cors-anywhere], um *Node.js app* que possibilita requisições *cross-origin* para qualquer lugar, mas a "solução" se mostrou instável e o acesso à **CoinMarketCap API** ficava indisponível em alguns momentos.
 
 #### ✅ Solução
 
-Além de criar o *frontend*, também desenvolvi um *middleware* na forma de uma aplicação **Node.js** para realizar a integração entre a **CoinMarketCap API** e o *React app*. Esse *middleware* não apenas me permitiu esconder a *API Key* do serviço, mas também restringir os *requests* através das minhas configurações do CORS, aceitando apenas as requisições com origem em [https://leonardosposina.github.io][react-frontend-app].
+Além de criar o *frontend*, também desenvolvi um *middleware* na forma de uma aplicação **Node.js** para realizar a integração entre a **CoinMarketCap API** e o *React app*. Esse *middleware* não apenas me permitiu esconder a minha *API Key*, mas também restringir os *requests* através das minhas configurações do CORS, aceitando apenas as requisições com origem em [https://leonardosposina.github.io][react-frontend-app] via scripts em navegador.
 
 - Integration Middleware API: [https://dio-crypto-api.herokuapp.com/][middleware-app].
 - Repositório: [https://github.com/leonardosposina/coinmarketcap-integration-middleware][middleware-repo].
@@ -44,8 +44,17 @@ Além de criar o *frontend*, também desenvolvi um *middleware* na forma de uma 
 
 ![Cryptocurrency App - Mobile (horizontal/modal)](docs/mobile-horizontal-modal.png)
 
+---
+
+### Referências
+
+- [Cross-Origin Resource Sharing (CORS)][cors-ref]
+- [CORS Anywhere (Repo)][cors-anywhere-repo]
+
 [react-frontend-app]: https://leonardosposina.github.io/dio-cryptocurrency-api-integration/
 [coinmarketcap-api]: https://coinmarketcap.com/api/
-[cors-anywhere]: https://cors-anywhere.herokuapp.com/
+[cors-anywhere-app]: https://cors-anywhere.herokuapp.com/
 [middleware-app]: https://dio-crypto-api.herokuapp.com/
 [middleware-repo]: https://github.com/leonardosposina/coinmarketcap-integration-middleware
+[cors-ref]:https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Controle_Acesso_CORS
+[cors-anywhere-repo]:https://github.com/Rob--W/cors-anywhere/

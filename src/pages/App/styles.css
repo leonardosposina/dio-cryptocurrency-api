@@ -6,6 +6,10 @@ nav {
     );
 }
 
+nav .navbar-brand {
+  cursor: pointer;
+}
+
 nav .navbar-brand .title{
   font-weight: bold;
   background: -webkit-linear-gradient(
@@ -24,24 +28,28 @@ nav .navbar-brand svg {
 
 .container-fluid {
   padding-top: 5px;
-  background-color: var(--primary-background-color);
 }
 
-.credits-left {
-  font-size: 0.8em;
-  overflow: hidden;
-  white-space: nowrap;
-  padding: 0 0 0 8px;
-  border-left: 1px solid var(--primary-border-color);
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+#currency-code-select {
+  margin-top: 2px;
+
+  font-weight: bold;
+  color: var(--secondary-text-color);
+  background-color: transparent;
+  border: 1px solid transparent;
 }
 
-@media only screen and (max-width: 400px) {
-  .credits-left {
-    display: none;
-  }
+#currency-code-select :hover {
+  border: 1px solid var(--secondary-border-color);
+}
+
+#currency-code-select option {
+  color: var(--secondary-text-color);
+  background-color: var(--secondary-background-color);
+}
+
+
+#currency-code-select option:checked {
+  color: var(--third-text-color);
 }
