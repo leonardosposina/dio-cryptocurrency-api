@@ -10,32 +10,33 @@ import {
 
 import { GiCoins } from 'react-icons/gi';
 
+import { useAlert } from '../../hooks/alert';
+
 import Cryptocoin from '../../components/Cryptocoin';
 import CryptocoinModal from '../../components/CryptocoinModal';
-import ErrorAlert from '../../components/ErrorAlert';
 import Loading from '../../components/Loading';
 import CreditsLeft from '../../components/CreditsLeft';
 
 import ICryptocurrency from '../../interfaces/ICryptocurrency';
 import ICryptocurrencyInfo from '../../interfaces/ICryptocurrencyInfo';
-import IApiErrorResponse from '../../interfaces/IApiErrorResponse';
 import IApiUsage from '../../interfaces/IApiUsage';
 
 import api from '../../services/api';
 
 import './styles.css';
 
-const App: React.FC = () => {
+const Dashboard: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
 
   const [apiUsage, setApiUsage] = useState<IApiUsage>();
-  const [apiError, setApiError] = useState<IApiErrorResponse | null>();
   const [cryptoList, setCryptoList] = useState<ICryptocurrency[]>([]);
   const [cryptoInfo, setCryptoInfo] = useState<ICryptocurrencyInfo>(
     {} as ICryptocurrencyInfo,
   );
   const [conversionCode, setConversionCode] = useState<string>();
+
+  const { addAlert } = useAlert();
 
   const handleSetConversionCode = useCallback((currencyCode: string) => {
     localStorage.setItem('@CryptocurrencyApp:currency-code', currencyCode);
@@ -55,33 +56,23 @@ const App: React.FC = () => {
     setShowModal(!showModal);
   }, [showModal]);
 
-  const handleError = useCallback(error => {
-    if (!error.response) {
-      setApiError({
-        error_message: `
-          We are unable to process your request at this time.
-          Please try again later.
-        `,
-      });
-    } else {
-      const { status } = error.response.data;
-      setApiError(status);
-    }
+  const fetchCryptocoinsList = useCallback((convert: string | undefined) => {
+    api
+      .get('cryptocoins', { params: { convert } })
+      .then(response => {
+        const { data } = response.data;
+        setCryptoList(data);
+        setIsLoading(false);
+      })
+      .catch(() =>
+        addAlert({
+          type: 'warning',
+          message:
+            'We are unable to get cryptocoin list data. Please try again later.',
+        }),
+      );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  const fetchCryptocoinsList = useCallback(
-    (convert: string | undefined) => {
-      api
-        .get('cryptocoins', { params: { convert } })
-        .then(response => {
-          const { data } = response.data;
-          setCryptoList(data);
-          setIsLoading(false);
-        })
-        .catch(error => handleError(error));
-    },
-    [handleError],
-  );
 
   const fetchCryptocoinInfo = useCallback(
     (id: number) => {
@@ -92,9 +83,16 @@ const App: React.FC = () => {
           setCryptoInfo(data[id]);
           handleToggleModal();
         })
-        .catch(error => handleError(error));
+        .catch(() =>
+          addAlert({
+            type: 'warning',
+            message:
+              'We are unable to get cryptocoin info data. Please try again later.',
+          }),
+        );
     },
-    [handleToggleModal, handleError],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [handleToggleModal],
   );
 
   const fetchApiUsage = useCallback(() => {
@@ -147,9 +145,6 @@ const App: React.FC = () => {
         </Navbar.Collapse>
       </Navbar>
       <Container fluid>
-        {apiError && (
-          <ErrorAlert error={apiError} clearError={() => setApiError(null)} />
-        )}
         {isLoading && <Loading message="Waking up the backend instance..." />}
         <Row>
           {cryptoList.map(crypto => (
@@ -171,4 +166,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default Dashboard;
