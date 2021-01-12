@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/dio-cryptocurrency-api-integration/static/css/main.e049eb9b.chunk.css",
+    "main.js": "/dio-cryptocurrency-api-integration/static/js/main.f7142540.chunk.js",
+    "main.js.map": "/dio-cryptocurrency-api-integration/static/js/main.f7142540.chunk.js.map",
+    "runtime-main.js": "/dio-cryptocurrency-api-integration/static/js/runtime-main.956b326c.js",
+    "runtime-main.js.map": "/dio-cryptocurrency-api-integration/static/js/runtime-main.956b326c.js.map",
+    "static/css/2.20aa2d7b.chunk.css": "/dio-cryptocurrency-api-integration/static/css/2.20aa2d7b.chunk.css",
+    "static/js/2.56f26196.chunk.js": "/dio-cryptocurrency-api-integration/static/js/2.56f26196.chunk.js",
+    "static/js/2.56f26196.chunk.js.map": "/dio-cryptocurrency-api-integration/static/js/2.56f26196.chunk.js.map",
+    "index.html": "/dio-cryptocurrency-api-integration/index.html",
+    "static/css/2.20aa2d7b.chunk.css.map": "/dio-cryptocurrency-api-integration/static/css/2.20aa2d7b.chunk.css.map",
+    "static/css/main.e049eb9b.chunk.css.map": "/dio-cryptocurrency-api-integration/static/css/main.e049eb9b.chunk.css.map",
+    "static/js/2.56f26196.chunk.js.LICENSE.txt": "/dio-cryptocurrency-api-integration/static/js/2.56f26196.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.956b326c.js",
+    "static/css/2.20aa2d7b.chunk.css",
+    "static/js/2.56f26196.chunk.js",
+    "static/css/main.e049eb9b.chunk.css",
+    "static/js/main.f7142540.chunk.js"
+  ]
+}
